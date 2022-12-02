@@ -3,9 +3,13 @@
  has not been used for the longest time
 */
 
+#ifndef CACHE_H
+#define CACHE_H
+
 #include <map>
-#include "error_.h"
-#include "instructions.h"
+#include "../ErrorHandler/error_.h"
+#include "../Instructions/instructions.h"
+
 
 class Cache
 {
@@ -32,3 +36,5 @@ class Cache
 
         void updateInstn(uint32_t instn, time_t cur_time);
 };
+
+#endif // CACHE_H

@@ -1,12 +1,7 @@
 #include "physmem.h"
 
 PhysMem::PhysMem(int size, Err::Error * error)
-{
-    for (int i = 0; i < 32; i++)
-        reg[i] = 0;
-
-    reg[2] = size - 1024;
-    
+{   
     mem_size = size;
     mem = new uint8_t[size];
     err = error;
@@ -14,29 +9,8 @@ PhysMem::PhysMem(int size, Err::Error * error)
 
 PhysMem::PhysMem()
 {
-    for (int i = 0; i < 32; i++)
-        reg[i] = 0;
-
     mem = {};
     err = nullptr;
-}
-
-uint32_t PhysMem::getRx(uint32_t index)
-{    
-    if (index > 31 || index < 0)
-        err->setRegErr(index);
-    
-    return reg[index];
-}
-
-void PhysMem::setRx(uint32_t index, uint32_t value)
-{   
-    if (index < 0 || index > 31)
-        err->setRegErr(index);
-
-    reg[index] = value;
-
-    reg[0] = 0;
 }
 
 uint32_t PhysMem::getMem(uint32_t mem_pointer, uint8_t nbytes)

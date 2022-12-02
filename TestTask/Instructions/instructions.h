@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "error_.h"
+#include "../ErrorHandler/error_.h"
 #include <limits>
 #include <map>
 
@@ -155,6 +155,7 @@ namespace Instn{
             Err::Error * err;
 
             Opcode getOpcode(uint32_t instn);
+            // decode functions used only in constructor 
 
             void decodeU(uint32_t instn);
             void decodeS(uint32_t instn);
@@ -166,6 +167,7 @@ namespace Instn{
             void decode(uint32_t instn);
 
         public:
+            // Instruction constructor decode instruction and save it as Instruction class object
             Instruction(uint32_t instn, Err::Error * error);
             Instruction();
 

@@ -1,8 +1,11 @@
-#include "elf_parser.h"
-#include "error_.h"
-#include "instructions.h"
-#include "physmem.h"
-#include "cache.h"
+#ifndef EXECUTOR_H
+#define EXECUTOR_H
+
+#include "../ElfParser/elf_parser.h"
+#include "../ErrorHandler/error_.h"
+#include "../Instructions/instructions.h"
+#include "../Physmem/physmem.h"
+#include "../Cache/cache.h"
 
 
 class Executor
@@ -10,9 +13,10 @@ class Executor
     private:
         PhysMem     ph_mem;
         Cache       cache;
-        Err::Error* err;
-        uint32_t    pc;
-        uint32_t    start_pc;
+        Err::Error* err      = nullptr;
+        uint32_t    pc       = 0;
+        uint32_t    start_pc = 0;
+        uint32_t    regs[32] = {};
 
         std::vector<uint32_t> code;
 
@@ -73,3 +77,5 @@ class Executor
         void regDump();
         void codeDump();
 };
+
+#endif // EXECUTOR_H

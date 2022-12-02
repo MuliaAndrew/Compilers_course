@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <libelf.h>
 
 
 Elf_ret_t elf_parse(std::string fname)

@@ -1,11 +1,13 @@
-#include "error_.h"
 #include "instructions.h"
+
 
 #define CASE(cmd)   case f##cmd:        \
                         kinstn = k##cmd;\
                         break
 
+
 using namespace Instn;
+
 
 const char* instnName[] = {
     "ADDI", "SLTI", "SLTIU", "ANDI", "ORI", "XORI", "SLLI", "SRLI", 
